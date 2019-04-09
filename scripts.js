@@ -1,6 +1,36 @@
-const form = document.querySelector('form');
+// const form = document.querySelector('form');
+const sendButton = document.querySelector('form button');
+const nameField = document.querySelector('input[name=name]');
+const cpfField = document.querySelector('input[name=cpf]');
 const emailField = document.querySelector('input[type=email]');
 const passwordFields = document.querySelectorAll('input[type=password]');
+
+const nameMask = function (e) {
+    if ((e.keyCode >= 65 && e.keyCode <= 90) || e.keyCode === 32 || e.keyCode === 8) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+const cpfMask = function (e) {
+    if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 8) {
+        let length = cpfField.value.length;
+        
+        if (length === 3 || length === 7) {
+            cpfField.value += '.';
+        }
+        else if (length === 11) {
+            cpfField.value += '-';
+        }
+
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 const emailValid = function () {
     const emailIndex = emailField.value.indexOf('@');
@@ -23,9 +53,12 @@ const passwordsMatch = function () {
 };
 
 const handleSubmit = function (e) {
-    e.preventDefault();
+    // e.preventDefault();
 
-    if (!emailValid()) {
+    if (!nameField  || !nameField.value) {
+        alert('Verifique seu nome.');
+    }
+    else if (!emailValid()) {
         alert('Verifique seu email.');
     }
     else if (!passwordsMatch()) {
@@ -36,7 +69,7 @@ const handleSubmit = function (e) {
     }
 };
 
-form.onsubmit = handleSubmit;
-emailField.oninput = function (e) {
-    console.log (e);
-}
+// form.onsubmit = handleSubmit;
+sendButton.onclick = handleSubmit;
+nameField.onkeydown = nameMask;
+cpfField.onkeydown = cpfMask;

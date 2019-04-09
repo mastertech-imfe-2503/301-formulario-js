@@ -13,8 +13,8 @@
 <body>
     <form action="">
         <div>
-            <label for="nome">Nome Completo</label>
-            <input type="text" name="nome" placeholder="Seu nome..." required>
+            <label for="name">Nome Completo</label>
+            <input type="text" name="name" placeholder="Seu nome..." required>
         </div>
 
         <div>
@@ -24,23 +24,23 @@
 
         <div>
             <label for="">CPF</label>
-            <input type="text" placeholder="Seu CPF..." required>
+            <input type="text" placeholder="Seu CPF..." name="cpf" maxlength="14" required>
         </div>
 
         <div>
-            <label for="">E-mail</label>
-            <input type="email" placeholder="Seu e-mail..." required>
+            <label for="name">E-mail</label>
+            <input type="email" name="email" placeholder="Seu e-mail..." required>
         </div>
 
         <div>
-            <label for="">Senha</label>
+            <label for="password">Senha</label>
             <input type="password" name="password" placeholder="Digite sua senha" required>
-            <label for="">Confirmar Senha</label>
-            <input type="password" placeholder="Digite sua senha novamente" required>
+            <label for="password-confirm">Confirmar Senha</label>
+            <input type="password" placeholder="Digite sua senha novamente" name="password-confirm" required>
         </div>
 
-        <!-- <button type="button">Enviar</button> -->
-        <button>Enviar</button>
+        <button type="button">Enviar</button>
+        <!-- <button>Enviar</button> -->
     </form>
 </body>
 
